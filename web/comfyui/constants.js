@@ -22,6 +22,7 @@ export const NodeTypesString = {
     FAST_BYPASSER: addRgthree("Fast Bypasser"),
     FAST_GROUPS_MUTER: addRgthree("Fast Groups Muter"),
     FAST_GROUPS_BYPASSER: addRgthree("Fast Groups Bypasser"),
+    FAST_GROUPS_RADIO_BYPASSER: addRgthree("Fast Groups Radio Bypasser"),
     FAST_ACTIONS_BUTTON: addRgthree("Fast Actions Button"),
     LABEL: addRgthree("Label"),
     POWER_PROMPT: addRgthree("Power Prompt"),
