@@ -594,7 +594,7 @@ class Rgthree extends EventTarget {
         className: "rgthree-contextmenu-item",
         callback: (...args: any[]) => {
           const msg =
-            `Convert ${rerouteLabel} ComfyUI Reroutes to Reroute (rgthree) nodes? \n` +
+            `Convert ${rerouteLabel} ComfyUI Reroutes to Reroute (ib-rgthree) nodes? \n` +
             `(First save a copy of your workflow & check reroute connections afterwards)`;
           if (!window.confirm(msg)) {
             return;

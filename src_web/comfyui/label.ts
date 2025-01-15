@@ -111,7 +111,7 @@ export class Label extends RgthreeBaseVirtualNode {
   override getHelp() {
     return `
       <p>
-        The rgthree-comfy ${this.type!.replace("(rgthree)", "")} node allows you to add a floating
+        The rgthree-comfy ${this.type!.replace("(ib-rgthree)", "")} node allows you to add a floating
         label to your workflow.
       </p>
       <p>

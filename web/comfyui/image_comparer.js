@@ -1,5 +1,5 @@
-import { app } from "../../scripts/app.js";
-import { api } from "../../scripts/api.js";
+import { app } from "../../../../../../../scripts/app.js";
+import { api } from "../../../../../../../scripts/api.js";
 import { RgthreeBaseServerNode } from "./base_node.js";
 import { NodeTypesString } from "./constants.js";
 import { addConnectionLayoutSupport } from "./utils.js";
@@ -113,7 +113,7 @@ export class RgthreeImageComparer extends RgthreeBaseServerNode {
     getHelp() {
         return `
       <p>
-        The ${this.type.replace("(rgthree)", "")} node compares two images on top of each other.
+        The ${this.type.replace("(ib-rgthree)", "")} node compares two images on top of each other.
       </p>
       <ul>
         <li>

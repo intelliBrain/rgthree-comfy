@@ -1,15 +1,15 @@
-import { app } from "../../scripts/app.js";
-import { api } from "../../scripts/api.js";
+import { app } from "../../../../../../../scripts/app.js";
+import { api } from "../../../../../../../scripts/api.js";
 import { SERVICE as CONFIG_SERVICE } from "./services/config_service.js";
 import { SERVICE as KEY_EVENT_SERVICE } from "./services/key_events_services.js";
-import { fixBadLinks } from "../../rgthree/common/link_fixer.js";
-import { injectCss, wait } from "../../rgthree/common/shared_utils.js";
+import { fixBadLinks } from "../../../../../../common/link_fixer.js";
+import { injectCss, wait } from "../../../../../../common/shared_utils.js";
 import { replaceNode, waitForCanvas, waitForGraph } from "./utils.js";
 import { NodeTypesString, addRgthree, getNodeTypeStrings } from "./constants.js";
-import { RgthreeProgressBar } from "../../rgthree/common/progress_bar.js";
+import { RgthreeProgressBar } from "../../../../../../common/progress_bar.js";
 import { RgthreeConfigDialog } from "./config.js";
-import { iconGear, iconNode, iconReplace, iconStarFilled, logoRgthree, } from "../../rgthree/common/media/svgs.js";
-import { createElement, query, queryOne } from "../../rgthree/common/utils_dom.js";
+import { iconGear, iconNode, iconReplace, iconStarFilled, logoRgthree, } from "../../../../../../common/media/svgs.js";
+import { createElement, query, queryOne } from "../../../../../../common/utils_dom.js";
 export var LogLevel;
 (function (LogLevel) {
     LogLevel[LogLevel["IMPORTANT"] = 1] = "IMPORTANT";
@@ -393,7 +393,7 @@ class Rgthree extends EventTarget {
                 disabled: !rerouteNodes.length,
                 className: "rgthree-contextmenu-item",
                 callback: (...args) => {
-                    const msg = `Convert ${rerouteLabel} ComfyUI Reroutes to Reroute (rgthree) nodes? \n` +
+                    const msg = `Convert ${rerouteLabel} ComfyUI Reroutes to Reroute (ib-rgthree) nodes? \n` +
                         `(First save a copy of your workflow & check reroute connections afterwards)`;
                     if (!window.confirm(msg)) {
                         return;

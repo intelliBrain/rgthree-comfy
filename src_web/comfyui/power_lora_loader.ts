@@ -337,7 +337,7 @@ class RgthreePowerLoraLoader extends RgthreeBaseServerNode {
   override getHelp() {
     return `
       <p>
-        The ${this.type!.replace("(rgthree)", "")} is a powerful node that condenses 100s of pixels
+        The ${this.type!.replace("(ib-rgthree)", "")} is a powerful node that condenses 100s of pixels
         of functionality in a single, dynamic node that allows you to add loras, change strengths,
         and quickly toggle on/off all without taking up half your screen.
       </p>

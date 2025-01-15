@@ -94,7 +94,7 @@ app.registerExtension({
     nodeData: ComfyObjectInfo,
     app: ComfyApp,
   ) {
-    if (nodeData.name === "Any Switch (rgthree)") {
+    if (nodeData.name === "Any Switch (ib-rgthree)") {
       RgthreeAnySwitch.setUp(nodeType, nodeData);
     }
   },

@@ -49,7 +49,7 @@ class CollectorNode extends BaseCollectorNode {
 
 /** Legacy "Combiner" */
 class CombinerNode extends CollectorNode {
-  static legacyType = "Node Combiner (rgthree)";
+  static legacyType = "Node Combiner (ib-rgthree)";
   static override title = "‼️ Node Combiner [DEPRECATED]";
 
   constructor(title = CombinerNode.title) {

@@ -1,4 +1,4 @@
-import { app } from "../../scripts/app.js";
+import { app } from "../../../../../../../scripts/app.js";
 import { rgthree } from "./rgthree.js";
 import { getOutputNodes } from "./utils.js";
 import { SERVICE as CONFIG_SERVICE } from "./services/config_service.js";
@@ -8,7 +8,7 @@ function showQueueNodesMenuIfOutputNodesAreSelected(existingOptions) {
     }
     const outputNodes = getOutputNodes(Object.values(app.canvas.selected_nodes));
     const menuItem = {
-        content: `Queue Selected Output Nodes (rgthree) &nbsp;`,
+        content: `Queue Selected Output Nodes (ib-rgthree) &nbsp;`,
         className: "rgthree-contextmenu-item",
         callback: () => {
             rgthree.queueOutputNodes(outputNodes.map((n) => n.id));
@@ -28,7 +28,7 @@ function showQueueGroupNodesMenuIfGroupIsSelected(existingOptions) {
         app.graph.getGroupOnPos(rgthree.lastAdjustedMouseEvent.canvasX, rgthree.lastAdjustedMouseEvent.canvasY);
     const outputNodes = group && getOutputNodes(group._nodes);
     const menuItem = {
-        content: `Queue Group Output Nodes (rgthree) &nbsp;`,
+        content: `Queue Group Output Nodes (ib-rgthree) &nbsp;`,
         className: "rgthree-contextmenu-item",
         callback: () => {
             outputNodes && rgthree.queueOutputNodes(outputNodes.map((n) => n.id));

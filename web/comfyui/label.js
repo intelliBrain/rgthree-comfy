@@ -1,4 +1,4 @@
-import { app } from "../../scripts/app.js";
+import { app } from "../../../../../../../scripts/app.js";
 import { RgthreeBaseVirtualNode } from "./base_node.js";
 import { NodeTypesString } from "./constants.js";
 import { rgthree } from "./rgthree.js";
@@ -73,7 +73,7 @@ export class Label extends RgthreeBaseVirtualNode {
     getHelp() {
         return `
       <p>
-        The rgthree-comfy ${this.type.replace("(rgthree)", "")} node allows you to add a floating
+        The rgthree-comfy ${this.type.replace("(ib-rgthree)", "")} node allows you to add a floating
         label to your workflow.
       </p>
       <p>

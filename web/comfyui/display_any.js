@@ -1,12 +1,12 @@
-import { app } from "../../scripts/app.js";
-import { ComfyWidgets } from "../../scripts/widgets.js";
+import { app } from "../../../../../../../scripts/app.js";
+import { ComfyWidgets } from "../../../../../../../scripts/widgets.js";
 import { addConnectionLayoutSupport } from "./utils.js";
 import { rgthree } from "./rgthree.js";
 let hasShownAlertForUpdatingInt = false;
 app.registerExtension({
     name: "rgthree.DisplayAny",
     async beforeRegisterNodeDef(nodeType, nodeData, app) {
-        if (nodeData.name === "Display Any (rgthree)" || nodeData.name === "Display Int (rgthree)") {
+        if (nodeData.name === "Display Any (ib-rgthree)" || nodeData.name === "Display Int (ib-rgthree)") {
             const onNodeCreated = nodeType.prototype.onNodeCreated;
             nodeType.prototype.onNodeCreated = function () {
                 onNodeCreated ? onNodeCreated.apply(this, []) : undefined;

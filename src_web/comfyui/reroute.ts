@@ -258,7 +258,7 @@ class RerouteService {
     }
 
     const data = this.connectingData;
-    const node = LiteGraph.createNode("Reroute (rgthree)") as RerouteNode;
+    const node = LiteGraph.createNode("Reroute (ib-rgthree)") as RerouteNode;
     const entry: FastRerouteEntry = {
       node,
       previous: {...this.connectingData},

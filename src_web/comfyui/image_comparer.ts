@@ -171,7 +171,7 @@ export class RgthreeImageComparer extends RgthreeBaseServerNode {
   override getHelp(): string {
     return `
       <p>
-        The ${this.type!.replace("(rgthree)", "")} node compares two images on top of each other.
+        The ${this.type!.replace("(ib-rgthree)", "")} node compares two images on top of each other.
       </p>
       <ul>
         <li>

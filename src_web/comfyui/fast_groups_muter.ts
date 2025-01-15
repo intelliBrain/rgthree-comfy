@@ -400,7 +400,7 @@ export abstract class BaseFastGroupsModeChanger extends RgthreeBaseVirtualNode {
   override getHelp() {
     return `
       <p>The ${this.type!.replace(
-        "(rgthree)",
+        "(ib-rgthree)",
         "",
       )} is an input-less node that automatically collects all groups in your current
       workflow and allows you to quickly ${this.helpActions} all nodes within the group.</p>

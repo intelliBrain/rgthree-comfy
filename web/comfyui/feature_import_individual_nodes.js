@@ -1,5 +1,5 @@
-import { tryToGetWorkflowDataFromEvent } from "../../rgthree/common/utils_workflow.js";
-import { app } from "../../scripts/app.js";
+import { tryToGetWorkflowDataFromEvent } from "../../../../../../common/utils_workflow.js";
+import { app } from "../../../../../../../scripts/app.js";
 import { SERVICE as CONFIG_SERVICE } from "./services/config_service.js";
 app.registerExtension({
     name: "rgthree.ImportIndividualNodes",

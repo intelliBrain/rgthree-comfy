@@ -14,7 +14,7 @@ app.registerExtension({
     nodeData: ComfyObjectInfo,
     app: ComfyApp,
   ) {
-    if (nodeData.name === "Display Any (rgthree)" || nodeData.name === "Display Int (rgthree)") {
+    if (nodeData.name === "Display Any (ib-rgthree)" || nodeData.name === "Display Int (ib-rgthree)") {
       const onNodeCreated = nodeType.prototype.onNodeCreated;
       nodeType.prototype.onNodeCreated = function () {
         onNodeCreated ? onNodeCreated.apply(this, []) : undefined;
@@ -56,8 +56,8 @@ app.registerExtension({
   // This ports Display Int to DisplayAny, but ComfyUI still shows an error.
   // If https://github.com/comfyanonymous/ComfyUI/issues/1527 is fixed, this could work.
   // async loadedGraphNode(node: TLGraphNode) {
-  //   if (node.type === "Display Int (rgthree)") {
-  //     replaceNode(node, "Display Any (rgthree)", new Map([["input", "source"]]));
+  //   if (node.type === "Display Int (ib-rgthree)") {
+  //     replaceNode(node, "Display Any (ib-rgthree)", new Map([["input", "source"]]));
   //     if (!hasShownAlertForUpdatingInt) {
   //       hasShownAlertForUpdatingInt = true;
   //       setTimeout(() => {

@@ -1,4 +1,4 @@
-import { app } from "../../scripts/app.js";
+import { app } from "../../../../../../../scripts/app.js";
 import { RgthreeBaseVirtualNode } from "./base_node.js";
 import { NodeTypesString } from "./constants.js";
 import { SERVICE as FAST_GROUPS_SERVICE } from "./services/fast_groups_service.js";
@@ -312,7 +312,7 @@ export class BaseFastGroupsModeChanger extends RgthreeBaseVirtualNode {
     }
     getHelp() {
         return `
-      <p>The ${this.type.replace("(rgthree)", "")} is an input-less node that automatically collects all groups in your current
+      <p>The ${this.type.replace("(ib-rgthree)", "")} is an input-less node that automatically collects all groups in your current
       workflow and allows you to quickly ${this.helpActions} all nodes within the group.</p>
       <ul>
         <li>

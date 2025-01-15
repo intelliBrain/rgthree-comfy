@@ -1,9 +1,9 @@
-import { app } from "../../scripts/app.js";
+import { app } from "../../../../../../../scripts/app.js";
 import { IoDirection, addConnectionLayoutSupport, followConnectionUntilType } from "./utils.js";
 import { RgthreeBaseServerNode } from "./base_node.js";
 import { NodeTypesString } from "./constants.js";
 import { removeUnusedInputsFromEnd } from "./utils_inputs_outputs.js";
-import { debounce } from "../../rgthree/common/shared_utils.js";
+import { debounce } from "../../../../../../common/shared_utils.js";
 class RgthreeAnySwitch extends RgthreeBaseServerNode {
     constructor(title = RgthreeAnySwitch.title) {
         super(title);
@@ -62,7 +62,7 @@ RgthreeAnySwitch.comfyClass = NodeTypesString.ANY_SWITCH;
 app.registerExtension({
     name: "rgthree.AnySwitch",
     async beforeRegisterNodeDef(nodeType, nodeData, app) {
-        if (nodeData.name === "Any Switch (rgthree)") {
+        if (nodeData.name === "Any Switch (ib-rgthree)") {
             RgthreeAnySwitch.setUp(nodeType, nodeData);
         }
     },

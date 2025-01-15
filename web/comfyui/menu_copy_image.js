@@ -1,4 +1,4 @@
-import { app } from "../../scripts/app.js";
+import { app } from "../../../../../../../scripts/app.js";
 const clipboardSupportedPromise = new Promise(async (resolve) => {
     try {
         const result = await navigator.permissions.query({ name: "clipboard-write" });
@@ -33,7 +33,7 @@ app.registerExtension({
                         const foundIdx = options.findIndex((option) => { var _a; return (_a = option === null || option === void 0 ? void 0 : option.content) === null || _a === void 0 ? void 0 : _a.includes("Copy Image"); });
                         if (img && foundIdx === -1) {
                             const menuItem = {
-                                content: "Copy Image (rgthree)",
+                                content: "Copy Image (ib-rgthree)",
                                 callback: () => {
                                     const canvas = document.createElement("canvas");
                                     const ctx = canvas.getContext("2d");

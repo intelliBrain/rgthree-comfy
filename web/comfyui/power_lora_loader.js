@@ -1,16 +1,16 @@
 var _a;
-import { app } from "../../scripts/app.js";
+import { app } from "../../../../../../../scripts/app.js";
 import { RgthreeBaseServerNode } from "./base_node.js";
 import { rgthree } from "./rgthree.js";
 import { addConnectionLayoutSupport } from "./utils.js";
 import { NodeTypesString } from "./constants.js";
 import { drawInfoIcon, drawNumberWidgetPart, drawRoundedRectangle, drawTogglePart, fitString, isLowQuality, } from "./utils_canvas.js";
 import { RgthreeBaseWidget, RgthreeBetterButtonWidget, RgthreeDividerWidget, } from "./utils_widgets.js";
-import { rgthreeApi } from "../../rgthree/common/rgthree_api.js";
+import { rgthreeApi } from "../../../../../../common/rgthree_api.js";
 import { showLoraChooser } from "./utils_menu.js";
-import { moveArrayItem, removeArrayItem } from "../../rgthree/common/shared_utils.js";
+import { moveArrayItem, removeArrayItem } from "../../../../../../common/shared_utils.js";
 import { RgthreeLoraInfoDialog } from "./dialog_info.js";
-import { LORA_INFO_SERVICE } from "../../rgthree/common/model_info_service.js";
+import { LORA_INFO_SERVICE } from "../../../../../../common/model_info_service.js";
 const PROP_LABEL_SHOW_STRENGTHS = "Show Strengths";
 const PROP_LABEL_SHOW_STRENGTHS_STATIC = `@${PROP_LABEL_SHOW_STRENGTHS}`;
 const PROP_VALUE_SHOW_STRENGTHS_SINGLE = "Single Strength";
@@ -203,7 +203,7 @@ class RgthreePowerLoraLoader extends RgthreeBaseServerNode {
     getHelp() {
         return `
       <p>
-        The ${this.type.replace("(rgthree)", "")} is a powerful node that condenses 100s of pixels
+        The ${this.type.replace("(ib-rgthree)", "")} is a powerful node that condenses 100s of pixels
         of functionality in a single, dynamic node that allows you to add loras, change strengths,
         and quickly toggle on/off all without taking up half your screen.
       </p>

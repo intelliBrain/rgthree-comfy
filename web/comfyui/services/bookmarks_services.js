@@ -1,4 +1,4 @@
-import { app } from "../../../scripts/app.js";
+import { app } from "../../../../../../../../scripts/app.js";
 import { NodeTypesString } from "../constants.js";
 class BookmarksService {
     getCurrentBookmarks() {

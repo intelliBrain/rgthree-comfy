@@ -1,10 +1,10 @@
-import { RgthreeDialog } from "../../rgthree/common/dialog.js";
-import { createElement as $el, empty, appendChildren, getClosestOrSelf, queryOne, query, setAttributes, } from "../../rgthree/common/utils_dom.js";
-import { logoCivitai, link, pencilColored, diskColored, dotdotdot, } from "../../rgthree/common/media/svgs.js";
-import { LORA_INFO_SERVICE } from "../../rgthree/common/model_info_service.js";
+import { RgthreeDialog } from "../../../../../../common/dialog.js";
+import { createElement as $el, empty, appendChildren, getClosestOrSelf, queryOne, query, setAttributes, } from "../../../../../../common/utils_dom.js";
+import { logoCivitai, link, pencilColored, diskColored, dotdotdot, } from "../../../../../../common/media/svgs.js";
+import { LORA_INFO_SERVICE } from "../../../../../../common/model_info_service.js";
 import { rgthree } from "./rgthree.js";
-import { MenuButton } from "../../rgthree/common/menu.js";
-import { generateId, injectCss } from "../../rgthree/common/shared_utils.js";
+import { MenuButton } from "../../../../../../common/menu.js";
+import { generateId, injectCss } from "../../../../../../common/shared_utils.js";
 class RgthreeInfoDialog extends RgthreeDialog {
     constructor(file, type = "lora") {
         const dialogOptions = {
