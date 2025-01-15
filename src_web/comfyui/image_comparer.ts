@@ -1,8 +1,8 @@
-import { app } from "scripts/app.js";
-import { api } from "scripts/api.js";
-import { RgthreeBaseServerNode } from "./base_node.js";
-import { NodeTypesString } from "./constants.js";
-import { ComfyNodeConstructor, ComfyObjectInfo } from "typings/comfy.js";
+import {app} from "scripts/app.js";
+import {api} from "scripts/api.js";
+import {RgthreeBaseServerNode} from "./base_node.js";
+import {NodeTypesString} from "./constants.js";
+import {ComfyNodeConstructor, ComfyObjectInfo} from "typings/comfy.js";
 import {
   AdjustedMouseEvent,
   LGraphCanvas,
@@ -10,16 +10,12 @@ import {
   SerializedLGraphNode,
   Vector2,
 } from "typings/litegraph.js";
-import { addConnectionLayoutSupport } from "./utils.js";
-import {
-  RgthreeBaseHitAreas,
-  RgthreeBaseWidget,
-  RgthreeBaseWidgetBounds,
-} from "./utils_widgets.js";
-import { measureText } from "./utils_canvas.js";
+import {addConnectionLayoutSupport} from "./utils.js";
+import {RgthreeBaseHitAreas, RgthreeBaseWidget, RgthreeBaseWidgetBounds} from "./utils_widgets.js";
+import {measureText} from "./utils_canvas.js";
 
-type ComfyImageServerData = { filename: string; type: string; subfolder: string };
-type ComfyImageData = { name: string; selected: boolean; url: string; img?: HTMLImageElement };
+type ComfyImageServerData = {filename: string; type: string; subfolder: string};
+type ComfyImageData = {name: string; selected: boolean; url: string; img?: HTMLImageElement};
 type OldExecutedPayload = {
   images: ComfyImageServerData[];
 };
@@ -99,7 +95,7 @@ export class RgthreeImageComparer extends RgthreeBaseServerNode {
           url: imageDataToUrl(d),
         });
       }
-      this.canvasWidget!.value = { images: imagesToChoose };
+      this.canvasWidget!.value = {images: imagesToChoose};
     }
   }
 
@@ -110,7 +106,7 @@ export class RgthreeImageComparer extends RgthreeBaseServerNode {
         o.widgets_values![index] = (
           this.widgets[index] as RgthreeImageComparerWidget
         ).value.images.map((d) => {
-          d = { ...d };
+          d = {...d};
           delete d.img;
           return d;
         });
@@ -171,7 +167,7 @@ export class RgthreeImageComparer extends RgthreeBaseServerNode {
   override getHelp(): string {
     return `
       <p>
-        The ${this.type!.replace("(ib-rgthree)", "")} node compares two images on top of each other.
+        The ${this.type!.replace("(rgthree)", "")} node compares two images on top of each other.
       </p>
       <ul>
         <li>
@@ -255,7 +251,7 @@ class RgthreeImageComparerWidget extends RgthreeBaseWidget<RgthreeImageComparerW
     this.node = node;
   }
 
-  private _value: RgthreeImageComparerWidgetValue = { images: [] };
+  private _value: RgthreeImageComparerWidgetValue = {images: []};
 
   set value(v: RgthreeImageComparerWidgetValue) {
     // Despite `v` typed as RgthreeImageComparerWidgetValue, we may have gotten an array of strings
@@ -265,7 +261,7 @@ class RgthreeImageComparerWidget extends RgthreeBaseWidget<RgthreeImageComparerW
       cleanedVal = v.map((d, i) => {
         if (!d || typeof d === "string") {
           // We usually only have two here, so they're selected.
-          d = { url: d, name: i == 0 ? "A" : "B", selected: true };
+          d = {url: d, name: i == 0 ? "A" : "B", selected: true};
         }
         return d;
       });
@@ -456,11 +452,11 @@ class RgthreeImageComparerWidget extends RgthreeBaseWidget<RgthreeImageComparerW
     const v = [];
     for (const data of this._value.images) {
       // Remove the img since it can't serialize.
-      const d = { ...data };
+      const d = {...data};
       delete d.img;
       v.push(d);
     }
-    return { images: v };
+    return {images: v};
   }
 }
 

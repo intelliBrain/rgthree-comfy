@@ -275,7 +275,7 @@ class Rgthree extends EventTarget {
       });
       const updateDebugKeyDown = () => {
         elDebugKeydowns.innerText = Object.keys(KEY_EVENT_SERVICE.downKeys).join(" ");
-      }
+      };
       KEY_EVENT_SERVICE.addEventListener("keydown", updateDebugKeyDown);
       KEY_EVENT_SERVICE.addEventListener("keyup", updateDebugKeyDown);
     }
@@ -594,7 +594,7 @@ class Rgthree extends EventTarget {
         className: "rgthree-contextmenu-item",
         callback: (...args: any[]) => {
           const msg =
-            `Convert ${rerouteLabel} ComfyUI Reroutes to Reroute (ib-rgthree) nodes? \n` +
+            `Convert ${rerouteLabel} ComfyUI Reroutes to Reroute (rgthree) nodes? \n` +
             `(First save a copy of your workflow & check reroute connections afterwards)`;
           if (!window.confirm(msg)) {
             return;

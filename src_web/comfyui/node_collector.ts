@@ -1,4 +1,4 @@
-import { app } from "scripts/app.js";
+import {app} from "scripts/app.js";
 import type {
   LLink,
   LGraph,
@@ -9,11 +9,11 @@ import type {
   IContextMenuOptions,
   ContextMenu,
 } from "typings/litegraph.js";
-import { addConnectionLayoutSupport } from "./utils.js";
-import { wait } from "rgthree/common/shared_utils.js";
-import { ComfyWidgets } from "scripts/widgets.js";
-import { BaseCollectorNode } from "./base_node_collector.js";
-import { NodeTypesString } from "./constants.js";
+import {addConnectionLayoutSupport} from "./utils.js";
+import {wait} from "rgthree/common/shared_utils.js";
+import {ComfyWidgets} from "scripts/widgets.js";
+import {BaseCollectorNode} from "./base_node_collector.js";
+import {NodeTypesString} from "./constants.js";
 
 /**
  * The Collector Node. Takes any number of inputs as connections for nodes and collects them into
@@ -49,7 +49,7 @@ class CollectorNode extends BaseCollectorNode {
 
 /** Legacy "Combiner" */
 class CombinerNode extends CollectorNode {
-  static legacyType = "Node Combiner (ib-rgthree)";
+  static legacyType = "Node Combiner (rgthree)";
   static override title = "‼️ Node Combiner [DEPRECATED]";
 
   constructor(title = CombinerNode.title) {
@@ -58,7 +58,7 @@ class CombinerNode extends CollectorNode {
     const note = ComfyWidgets["STRING"](
       this,
       "last_seed",
-      ["STRING", { multiline: true }],
+      ["STRING", {multiline: true}],
       app,
     ).widget;
     note.inputEl!.value =
@@ -106,7 +106,7 @@ async function updateCombinerToCollector(node: TLGraphNode) {
     // Port the position, size, and properties from the old node.
     newNode.pos = [...node.pos];
     newNode.size = [...node.size];
-    newNode.properties = { ...node.properties };
+    newNode.properties = {...node.properties};
     // We now collect the links data, inputs and outputs, of the old node since these will be
     // lost when we remove it.
     const links: any[] = [];
@@ -115,7 +115,7 @@ async function updateCombinerToCollector(node: TLGraphNode) {
         const link: LLink = (app.graph as LGraph).links[linkId]!;
         if (!link) continue;
         const targetNode = app.graph.getNodeById(link.target_id);
-        links.push({ node: newNode, slot: index, targetNode, targetSlot: link.target_slot });
+        links.push({node: newNode, slot: index, targetNode, targetSlot: link.target_slot});
       }
     }
     for (const [index, input] of node.inputs.entries()) {

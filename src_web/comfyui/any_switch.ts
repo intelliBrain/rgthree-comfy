@@ -1,12 +1,12 @@
-import type { INodeInputSlot, INodeOutputSlot, LLink } from "typings/litegraph.js";
-import type { ComfyApp, ComfyNodeConstructor, ComfyObjectInfo } from "typings/comfy.js";
+import type {INodeInputSlot, INodeOutputSlot, LLink} from "typings/litegraph.js";
+import type {ComfyApp, ComfyNodeConstructor, ComfyObjectInfo} from "typings/comfy.js";
 
-import { app } from "scripts/app.js";
-import { IoDirection, addConnectionLayoutSupport, followConnectionUntilType } from "./utils.js";
-import { RgthreeBaseServerNode } from "./base_node.js";
-import { NodeTypesString } from "./constants.js";
-import { removeUnusedInputsFromEnd } from "./utils_inputs_outputs.js";
-import { debounce } from "rgthree/common/shared_utils.js";
+import {app} from "scripts/app.js";
+import {IoDirection, addConnectionLayoutSupport, followConnectionUntilType} from "./utils.js";
+import {RgthreeBaseServerNode} from "./base_node.js";
+import {NodeTypesString} from "./constants.js";
+import {removeUnusedInputsFromEnd} from "./utils_inputs_outputs.js";
+import {debounce} from "rgthree/common/shared_utils.js";
 
 class RgthreeAnySwitch extends RgthreeBaseServerNode {
   static override title = NodeTypesString.ANY_SWITCH;
@@ -73,8 +73,8 @@ class RgthreeAnySwitch extends RgthreeBaseServerNode {
         output.type === "RGTHREE_CONTEXT"
           ? "CONTEXT"
           : Array.isArray(this.nodeType) || this.nodeType.includes(",")
-          ? connectedType?.label || String(this.nodeType)
-          : String(this.nodeType);
+            ? connectedType?.label || String(this.nodeType)
+            : String(this.nodeType);
     }
   }
 
@@ -94,7 +94,7 @@ app.registerExtension({
     nodeData: ComfyObjectInfo,
     app: ComfyApp,
   ) {
-    if (nodeData.name === "Any Switch (ib-rgthree)") {
+    if (nodeData.name === "Any Switch (rgthree)") {
       RgthreeAnySwitch.setUp(nodeType, nodeData);
     }
   },

@@ -1,4 +1,4 @@
-import { app } from "scripts/app.js";
+import {app} from "scripts/app.js";
 import {
   getWidgetConfig,
   mergeIfValid,
@@ -6,8 +6,8 @@ import {
   // @ts-ignore
 } from "../../extensions/core/widgetInputs.js";
 // @ts-ignore
-import { rgthreeConfig } from "rgthree/config.js";
-import { rgthree } from "./rgthree.js";
+import {rgthreeConfig} from "rgthree/config.js";
+import {rgthree} from "./rgthree.js";
 import type {
   Vector2,
   LLink,
@@ -30,10 +30,10 @@ import {
   setConnectionsLayout,
   waitForCanvas,
 } from "./utils.js";
-import { SERVICE as KEY_EVENT_SERVICE } from "./services/key_events_services.js";
-import { wait } from "rgthree/common/shared_utils.js";
-import { RgthreeBaseVirtualNode } from "./base_node.js";
-import { NodeTypesString } from "./constants.js";
+import {SERVICE as KEY_EVENT_SERVICE} from "./services/key_events_services.js";
+import {wait} from "rgthree/common/shared_utils.js";
+import {RgthreeBaseVirtualNode} from "./base_node.js";
+import {NodeTypesString} from "./constants.js";
 
 const CONFIG_REROUTE = rgthreeConfig?.["nodes"]?.["reroute"] || {};
 
@@ -94,7 +94,7 @@ type FastRerouteEntry = {
 class RerouteService {
   private isFastLinking = false;
   private handledNewRerouteKeypress = false;
-  private connectingData: FastRerouteEntryCtx|null = null;
+  private connectingData: FastRerouteEntryCtx | null = null;
   private fastReroutesHistory: FastRerouteEntry[] = [];
 
   private handleLinkingKeydownBound = this.handleLinkingKeydown.bind(this);
@@ -116,7 +116,7 @@ class RerouteService {
     // With the new UI released in August 2024, ComfyUI changed LiteGraph's code, removing
     // connecting_node, connecting_node, connecting_node, and connecting_node properties and instead
     // using an array of connecting_links. We can try to accomodate both for a while.
-    const canvasProperty = true ? 'connecting_links' : 'connecting_node';
+    const canvasProperty = true ? "connecting_links" : "connecting_node";
     (canvas as any)[`_${canvasProperty}`];
     const thisService = this;
     Object.defineProperty(canvas, canvasProperty, {
@@ -162,7 +162,10 @@ class RerouteService {
   private stoppingLinking() {
     this.isFastLinking = false;
     this.fastReroutesHistory = [];
-    KEY_EVENT_SERVICE.removeEventListener("keydown", this.handleLinkingKeydownBound as EventListener);
+    KEY_EVENT_SERVICE.removeEventListener(
+      "keydown",
+      this.handleLinkingKeydownBound as EventListener,
+    );
     KEY_EVENT_SERVICE.removeEventListener("keyup", this.handleLinkingKeyupBound as EventListener);
   }
 
@@ -197,9 +200,13 @@ class RerouteService {
     }
   }
 
-  private getConnectingData() : FastRerouteEntryCtx {
+  private getConnectingData(): FastRerouteEntryCtx {
     const oldCanvas = app.canvas as any;
-    if (oldCanvas.connecting_node && oldCanvas.connecting_slot != null && oldCanvas.connecting_pos?.length) {
+    if (
+      oldCanvas.connecting_node &&
+      oldCanvas.connecting_slot != null &&
+      oldCanvas.connecting_pos?.length
+    ) {
       return {
         node: oldCanvas.connecting_node,
         input: oldCanvas.connecting_input,
@@ -225,7 +232,11 @@ class RerouteService {
 
   private setCanvasConnectingData(ctx: FastRerouteEntryCtx) {
     const oldCanvas = app.canvas as any;
-    if (oldCanvas.connecting_node && oldCanvas.connecting_slot != null && oldCanvas.connecting_pos?.length) {
+    if (
+      oldCanvas.connecting_node &&
+      oldCanvas.connecting_slot != null &&
+      oldCanvas.connecting_pos?.length
+    ) {
       oldCanvas.connecting_node = ctx.node;
       oldCanvas.connecting_input = ctx.input;
       oldCanvas.connecting_output = ctx.output;
@@ -258,7 +269,7 @@ class RerouteService {
     }
 
     const data = this.connectingData;
-    const node = LiteGraph.createNode("Reroute (ib-rgthree)") as RerouteNode;
+    const node = LiteGraph.createNode("Reroute (rgthree)") as RerouteNode;
     const entry: FastRerouteEntry = {
       node,
       previous: {...this.connectingData},
@@ -385,9 +396,9 @@ class RerouteNode extends RgthreeBaseVirtualNode {
 
   /** Shortcuts defined in the config. */
   private shortcuts = {
-    rotate: { keys: CONFIG_KEY_ROTATE, state: false },
-    connection_input: { keys: CONFIG_KEY_CXN_INPUT, state: false },
-    connection_output: { keys: CONFIG_KEY_CXN_OUTPUT, state: false },
+    rotate: {keys: CONFIG_KEY_ROTATE, state: false},
+    connection_input: {keys: CONFIG_KEY_CXN_INPUT, state: false},
+    connection_output: {keys: CONFIG_KEY_CXN_OUTPUT, state: false},
     resize: {
       keys: CONFIG_KEY_RESIZE,
       state: false,
@@ -715,7 +726,7 @@ class RerouteNode extends RgthreeBaseVirtualNode {
       try {
         // For primitive nodes, which look at the widget to dsplay themselves.
         if (outputWidgetConfig && outputWidget && outputType) {
-          node.inputs[0]!.widget = { name: "value" };
+          node.inputs[0]!.widget = {name: "value"};
           setWidgetConfig(
             node.inputs[0],
             [outputType ?? displayType, outputWidgetConfig],
@@ -911,8 +922,8 @@ class RerouteNode extends RgthreeBaseVirtualNode {
             ? [LiteGraph.DOWN, LiteGraph.RIGHT, LiteGraph.LEFT]
             : [LiteGraph.UP, LiteGraph.LEFT, LiteGraph.RIGHT]
           : currentLayout === "Right"
-          ? [LiteGraph.RIGHT, LiteGraph.DOWN, LiteGraph.UP]
-          : [LiteGraph.LEFT, LiteGraph.UP, LiteGraph.DOWN];
+            ? [LiteGraph.RIGHT, LiteGraph.DOWN, LiteGraph.UP]
+            : [LiteGraph.LEFT, LiteGraph.UP, LiteGraph.DOWN];
       let idx = options.indexOf(currentDir);
       let next = options[idx + 1] ?? options[0]!;
       this.properties["connections_dir"][propIdx] = next;

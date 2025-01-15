@@ -1,13 +1,13 @@
-import { app } from "scripts/app.js";
-import type { LGraphCanvas, ContextMenuItem } from "typings/litegraph.js";
-import type { ComfyNodeConstructor, ComfyObjectInfo } from "typings/comfy.js";
+import {app} from "scripts/app.js";
+import type {LGraphCanvas, ContextMenuItem} from "typings/litegraph.js";
+import type {ComfyNodeConstructor, ComfyObjectInfo} from "typings/comfy.js";
 
 const clipboardSupportedPromise = new Promise<boolean>(async (resolve) => {
   try {
     // MDN says to check this, but it doesn't work in Mozilla... however, in secure contexts
     // (localhost included), it's given by default if the user has it flagged.. so we should be
     // able to check in the latter ClipboardItem too.
-    const result = await navigator.permissions.query({ name: "clipboard-write" } as any);
+    const result = await navigator.permissions.query({name: "clipboard-write"} as any);
     resolve(result.state === "granted");
     return;
   } catch (e) {
@@ -15,7 +15,7 @@ const clipboardSupportedPromise = new Promise<boolean>(async (resolve) => {
       if (!navigator.clipboard.write) {
         throw new Error();
       }
-      new ClipboardItem({ "image/png": new Blob([], { type: "image/png" }) });
+      new ClipboardItem({"image/png": new Blob([], {type: "image/png"})});
       resolve(true);
       return;
     } catch (e) {
@@ -46,7 +46,7 @@ app.registerExtension({
             const foundIdx = options.findIndex((option) => option?.content?.includes("Copy Image"));
             if (img && foundIdx === -1) {
               const menuItem: ContextMenuItem = {
-                content: "Copy Image (ib-rgthree)",
+                content: "Copy Image (rgthree)",
                 callback: () => {
                   const canvas = document.createElement("canvas");
                   const ctx = canvas.getContext("2d")!;
@@ -54,7 +54,7 @@ app.registerExtension({
                   canvas.height = img.naturalHeight;
                   ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
                   canvas.toBlob((blob) => {
-                    navigator.clipboard.write([new ClipboardItem({ "image/png": blob! })]);
+                    navigator.clipboard.write([new ClipboardItem({"image/png": blob!})]);
                   });
                 },
               };

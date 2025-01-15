@@ -1,6 +1,6 @@
-import { app } from "scripts/app.js";
-import { RgthreeBaseVirtualNode } from "./base_node.js";
-import { NodeTypesString } from "./constants.js";
+import {app} from "scripts/app.js";
+import {RgthreeBaseVirtualNode} from "./base_node.js";
+import {NodeTypesString} from "./constants.js";
 import {
   type LGraphNode,
   type LGraph as TLGraph,
@@ -9,9 +9,9 @@ import {
   SerializedLGraphNode,
   IWidget,
 } from "typings/litegraph.js";
-import { SERVICE as FAST_GROUPS_SERVICE } from "./services/fast_groups_service.js";
-import { drawNodeWidget, fitString } from "./utils_canvas.js";
-import { RgthreeBaseVirtualNodeConstructor } from "typings/rgthree.js";
+import {SERVICE as FAST_GROUPS_SERVICE} from "./services/fast_groups_service.js";
+import {drawNodeWidget, fitString} from "./utils_canvas.js";
+import {RgthreeBaseVirtualNodeConstructor} from "typings/rgthree.js";
 
 const PROPERTY_SORT = "sort";
 const PROPERTY_SORT_CUSTOM_ALPHA = "customSortAlphabet";
@@ -40,14 +40,14 @@ export abstract class BaseFastGroupsModeChanger extends RgthreeBaseVirtualNode {
 
   protected helpActions = "mute and unmute";
 
-  static "@matchColors" = { type: "string" };
-  static "@matchTitle" = { type: "string" };
-  static "@showNav" = { type: "boolean" };
+  static "@matchColors" = {type: "string"};
+  static "@matchTitle" = {type: "string"};
+  static "@showNav" = {type: "boolean"};
   static "@sort" = {
     type: "combo",
     values: ["position", "alphanumeric", "custom alphabet"],
   };
-  static "@customSortAlphabet" = { type: "string" };
+  static "@customSortAlphabet" = {type: "string"};
 
   static "@toggleRestriction" = {
     type: "combo",
@@ -193,7 +193,7 @@ export abstract class BaseFastGroupsModeChanger extends RgthreeBaseVirtualNode {
           label: "",
           value: false,
           disabled: false,
-          options: { on: "yes", off: "no" },
+          options: {on: "yes", off: "no"},
           draw: function (
             ctx: CanvasRenderingContext2D,
             node: LGraphNode,
@@ -400,7 +400,7 @@ export abstract class BaseFastGroupsModeChanger extends RgthreeBaseVirtualNode {
   override getHelp() {
     return `
       <p>The ${this.type!.replace(
-        "(ib-rgthree)",
+        "(rgthree)",
         "",
       )} is an input-less node that automatically collects all groups in your current
       workflow and allows you to quickly ${this.helpActions} all nodes within the group.</p>

@@ -1,9 +1,9 @@
-import { app } from "scripts/app.js";
-import { ComfyWidgets } from "scripts/widgets.js";
-import type { LGraphNode as TLGraphNode } from "typings/litegraph.js";
-import type { ComfyApp, ComfyNodeConstructor, ComfyObjectInfo } from "typings/comfy.js";
-import { addConnectionLayoutSupport } from "./utils.js";
-import { rgthree } from "./rgthree.js";
+import {app} from "scripts/app.js";
+import {ComfyWidgets} from "scripts/widgets.js";
+import type {LGraphNode as TLGraphNode} from "typings/litegraph.js";
+import type {ComfyApp, ComfyNodeConstructor, ComfyObjectInfo} from "typings/comfy.js";
+import {addConnectionLayoutSupport} from "./utils.js";
+import {rgthree} from "./rgthree.js";
 
 let hasShownAlertForUpdatingInt = false;
 
@@ -14,7 +14,7 @@ app.registerExtension({
     nodeData: ComfyObjectInfo,
     app: ComfyApp,
   ) {
-    if (nodeData.name === "Display Any (ib-rgthree)" || nodeData.name === "Display Int (ib-rgthree)") {
+    if (nodeData.name === "Display Any (rgthree)" || nodeData.name === "Display Int (rgthree)") {
       const onNodeCreated = nodeType.prototype.onNodeCreated;
       nodeType.prototype.onNodeCreated = function () {
         onNodeCreated ? onNodeCreated.apply(this, []) : undefined;
@@ -22,7 +22,7 @@ app.registerExtension({
         (this as any).showValueWidget = ComfyWidgets["STRING"](
           this,
           "output",
-          ["STRING", { multiline: true }],
+          ["STRING", {multiline: true}],
           app,
         ).widget;
         (this as any).showValueWidget.inputEl!.readOnly = true;
@@ -56,8 +56,8 @@ app.registerExtension({
   // This ports Display Int to DisplayAny, but ComfyUI still shows an error.
   // If https://github.com/comfyanonymous/ComfyUI/issues/1527 is fixed, this could work.
   // async loadedGraphNode(node: TLGraphNode) {
-  //   if (node.type === "Display Int (ib-rgthree)") {
-  //     replaceNode(node, "Display Any (ib-rgthree)", new Map([["input", "source"]]));
+  //   if (node.type === "Display Int (rgthree)") {
+  //     replaceNode(node, "Display Any (rgthree)", new Map([["input", "source"]]));
   //     if (!hasShownAlertForUpdatingInt) {
   //       hasShownAlertForUpdatingInt = true;
   //       setTimeout(() => {

@@ -1,14 +1,14 @@
-import { app } from "scripts/app.js";
-import { RgthreeBaseVirtualNodeConstructor } from "typings/rgthree.js";
-import { RgthreeBaseVirtualNode } from "./base_node.js";
-import { NodeTypesString } from "./constants.js";
+import {app} from "scripts/app.js";
+import {RgthreeBaseVirtualNodeConstructor} from "typings/rgthree.js";
+import {RgthreeBaseVirtualNode} from "./base_node.js";
+import {NodeTypesString} from "./constants.js";
 import type {
   LGraphCanvas as TLGraphCanvas,
   LGraphNode,
   AdjustedMouseEvent,
   Vector2,
 } from "typings/litegraph.js";
-import { rgthree } from "./rgthree.js";
+import {rgthree} from "./rgthree.js";
 
 /**
  * A label node that allows you to put floating text anywhere on the graph. The text is the `Title`
@@ -24,13 +24,13 @@ export class Label extends RgthreeBaseVirtualNode {
   static readonly title_mode = LiteGraph.NO_TITLE;
   static collapsable = false;
 
-  static "@fontSize" = { type: "number" };
-  static "@fontFamily" = { type: "string" };
-  static "@fontColor" = { type: "string" };
-  static "@textAlign" = { type: "combo", values: ["left", "center", "right"] };
-  static "@backgroundColor" = { type: "string" };
-  static "@padding" = { type: "number" };
-  static "@borderRadius" = { type: "number" };
+  static "@fontSize" = {type: "number"};
+  static "@fontFamily" = {type: "string"};
+  static "@fontColor" = {type: "string"};
+  static "@textAlign" = {type: "combo", values: ["left", "center", "right"]};
+  static "@backgroundColor" = {type: "string"};
+  static "@padding" = {type: "number"};
+  static "@borderRadius" = {type: "number"};
 
   override resizable = false;
 
@@ -111,7 +111,7 @@ export class Label extends RgthreeBaseVirtualNode {
   override getHelp() {
     return `
       <p>
-        The rgthree-comfy ${this.type!.replace("(ib-rgthree)", "")} node allows you to add a floating
+        The rgthree-comfy ${this.type!.replace("(rgthree)", "")} node allows you to add a floating
         label to your workflow.
       </p>
       <p>

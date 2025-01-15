@@ -1,7 +1,7 @@
 import {SERVICE as CONFIG_SERVICE} from "./services/config_service.js";
 
 export function addRgthree(str: string) {
-  return str + " (ib-rgthree)";
+  return str + " (rgthree)";
 }
 
 export function stripRgthree(str: string) {
